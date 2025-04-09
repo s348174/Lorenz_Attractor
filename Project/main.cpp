@@ -52,7 +52,7 @@ int main(int argc, char** argv)
 
     // Scrittura file di output
     int N = round(T_max/dt);
-    string fileoutname = "Lorenz_attractor_trajectory_N=" + to_string(N) + "_X0=" + to_string(X0(0)) + ";" + to_string(X0(1)) + ";" + to_string(X0(2));
+    string fileoutname = "Lorenz_attractor_trajectory_N=" + to_string(N) + "_X0=" + to_string(X0(0)) + ";" + to_string(X0(1)) + ";" + to_string(X0(2)) + ".txt";
     if(print_result(fileoutname, X)) {
         cout << "File " << fileoutname << " written successfully" << endl;
     }
