@@ -1,6 +1,7 @@
 function plot_lorenz(filename)
     % Function per plottare la traiettoria del'attrattore di Lorenz.
     % Legge un file CSV con colonne x,y,z e plottalo in 3D
+    % NOTA: filename deve essere una stringa (es: 'nomefile.csv')
     data = readmatrix(filename); % se la versione di Matlab non è aggiornata, usare csvread
 
     x = data(:,1);
