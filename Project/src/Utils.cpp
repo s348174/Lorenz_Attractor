@@ -36,16 +36,36 @@ vector<Vector3d> runge_kutta_4(Vector3d X0, const double& T_max, const double& d
     return X;
 }
 
-bool print_result(const string& fileoutname, const vector<Vector3d>& X)
+// bool print_result(const string& fileoutname, const vector<Vector3d>& X)
+// {
+//     ofstream fileout(fileoutname);
+//     if (fileout.fail()) {
+//         cerr << "Error while creating/opening " << fileoutname << endl;
+//         return false;
+//     }
+//     for (const Vector3d& X_t : X) {
+//         fileout << scientific << setprecision(8) << X_t(0) << "; "  << X_t(1) << "; " << X_t(2) << ";" << endl;
+//     }
+//     fileout.close();
+//     return true;
+// }
+
+bool print_trajectory_to_csv(const vector<Vector3d>& trajectory, const string& filename)
 {
-    ofstream fileout(fileoutname);
-    if (fileout.fail()) {
-        cerr << "Error while creating/opening " << fileoutname << endl;
+    ofstream file_csv(filename);
+    if (!file_csv.is_open()) {
+        cerr << "Error while crating/opening " << filename << endl;
         return false;
     }
-    for (const Vector3d& X_t : X) {
-        fileout << scientific << setprecision(8) << X_t(0) << "; "  << X_t(1) << "; " << X_t(2) << ";" << endl;
+
+    // Intestazione
+    file_csv << "x,y,z\n";
+
+    for (const auto& point : trajectory) {
+        file_csv << scientific << setprecision(8) << point(0) << "," << point(1) << "," << point(2) << "\n";
     }
-    fileout.close();
+
+    file_csv.close();
+
     return true;
 }
