@@ -11,7 +11,7 @@ The points of the trajectory are stored in a dinamically allocated `vector<Vecto
 
 The main.cpp file requires 2 command line arguments, the first beeing T_max, or the maximum time for calculating the trajectory, the second beeing dt, or the integration step. 
 Each coordinate of the starting point X0 is chosen uniformly at random between -0.1 and 0.1, while $\sigma = 10$, $\rho = 28$, $\beta = 8/3$ are given.
-The trajectory is memorized in a vectr<Vector3d>> using Eigen library. Then the programs prints the trajectory in an output .csv file.
+The trajectory is memorized in a vectr<Vector3d>> using Eigen library. Then the programs exports the trajectory in an output .csv file.
 
 The file plot_lorenz.m in the main directory is a MATLAB script that can be used to make a 3d plot of the resulting .csv file.
 
