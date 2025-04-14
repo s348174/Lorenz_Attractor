@@ -1,5 +1,5 @@
 # Lorenz_Attractor - C++ & MATLAB project
-C++ code implementation for a Lorenz attractor. The Lorenz attractor is a dynamical system described by 3 first order ODEs. The code implements a 4 step Runge-Kutta method in order to solve numerically at each time step in a given interval the ODEs.
+C++ code implementation for a Lorenz attractor. The Lorenz attractor is a weel known dynamical chaotic system described by 3 first order ODEs. The code implements a 4 step Runge-Kutta method in order to solve numerically at each time step in a given interval the ODEs.
 
 ## System of equations
 The Lorenz equations give the gradient of the trajectory at any given point in $\mathbb{R}^3$:
@@ -26,7 +26,7 @@ X_{n+1} &= X_n + \frac{h}{6}(K_1 + 2K_2 + 2K_3 + K_4).
 \end{aligned}
 \end{cases} $$
 
-In this case $f(t,X) = f(X) = \nabla X$ since the system of ODEs is dependent only to the position.
+In this case $f(t,X) = f(X) = \nabla X$ since the system of ODEs is only dependent to the position.
 
 ## Implementation details
 
