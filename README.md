@@ -1,9 +1,16 @@
 # Lorenz_Attractor
-C++ code for a Lorenz attractor. The Lorenz attractor is a dinamical system of 3 first order ODEs, so the code implements a 4 step Runge-Kutta method in order to solve numerically at each time step in a given interval the ODEs which give the gradient:
+C++ code for a Lorenz attractor. The Lorenz attractor is a dynamical system described by 3 first order ODEs. The code implements a 4 step Runge-Kutta method in order to solve numerically at each time step in a given interval the ODEs.
 
-$$\begin{cases} \dot{x} = \sigma y-x \newline \dot{y} = x (\rho - z) - y \newline \dot{z} = x y - \beta z. \end{cases}$$
+### Sistem of equations
+The Lorenz equations give the gradient of the trajectory at any given point in $\mathbb{R}^3$:
 
-The gradient is then multiplied by the time step ad added to previous posisision in order to obtain the next point in the trajectory:
+$$\begin{cases} 
+\dot{x} = \sigma y-x \\
+\dot{y} = x (\rho - z) - y \\
+\dot{z} = x y - \beta z. 
+\end{cases}$$
+
+The calculation starts in an initial point $X_0 = (x_0,y_0,z_0)$. Each successive point is calculated by multiplying the gradient in point $X_i$ by the time step ad adding to the previous position in order to obtain the next point in the trajectory:
 
 $$ X_{i+1} = X_{i} + \nabla X_i \cdot dt \ .$$
 
