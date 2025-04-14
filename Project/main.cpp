@@ -1,4 +1,4 @@
-#include "Utils.hpp"
+#include "./src/Utils.hpp"
 #include <iostream>
 #include <Eigen/Eigen>
 #include <cmath>
@@ -6,6 +6,10 @@
 #include <random>
 #include <iomanip>
 #include <sstream>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <errno.h>
+#include <filesystem>
 
 using namespace std;
 using namespace Eigen;
@@ -56,9 +60,22 @@ int main(int argc, char** argv)
     // if(print_result(fileoutname, X)) {
     //     cout << "File " << fileoutname << " written successfully" << endl;
     // }
-    string filecsvname = "Lorenz_attractor_trajectory.csv";
+
+    // Creazione cartella per l'export in csv
+    string data_folder = "data";
+    if (mkdir(data_folder.c_str(), 0777) == -1) {
+        if (errno != EEXIST) {
+            cerr << "Could not create directory " << data_folder << endl;
+        }
+    }
+
+    // Scrittura file csv
+    string filecsvname = (filesystem::current_path() / "data" / "Lorenz_attractor_trajectory.csv").string();
+    // "../" + data_folder + "/Lorenz_attractor_trajectory.csv"
     if(print_trajectory_to_csv(X, filecsvname)) {
         cout << "File " << filecsvname << " written successfully" << endl;
     }
+
+    // cout << "Current working directory: " << filesystem::current_path() << endl;
     return 0;
 }

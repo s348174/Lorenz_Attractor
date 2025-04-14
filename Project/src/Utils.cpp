@@ -1,3 +1,4 @@
+#include "Utils.hpp"
 #include <iostream>
 #include <Eigen/Eigen>
 #include <vector>
