@@ -30,17 +30,17 @@ In this case $f(t,X) = f(X) = \nabla X$ since the system of ODEs is only depende
 
 ## Implementation details
 
-Each coordinate of the starting point X0 is sampled uniformly between -0.1 and 0.1, while $\sigma = 10$, $\rho = 28$, $\beta = 8/3$ are given.
+Each coordinate of the starting point $X_0$ is sampled uniformly between $-0.1$ and $0.1$, while parameters $\sigma = 10$, $\rho = 28$, $\beta = 8/3$ are given.
 
-The points of the trajectory are calculated in the c++ program and are stored in a dinamically allocated `vector<Vector3d>`, where `vector` is the native dinamically allocated array of the standard template library, while `Vector3d` is a column vector of 3 doubles from the Eigen library. Then the programs exports the trajectory in an output csv file named `Lorenz_attractor_trajectory.csv`.
+The points of the trajectory are calculated in the c++ program and stored in a dinamically allocated `vector<Vector3d>`, where `vector` is the native dinamically allocated array of the standard template library, while `Vector3d` is a column vector of 3 doubles from the Eigen library. Then the programs exports the trajectory in an output csv file named `Lorenz_attractor_trajectory.csv`.
 
 ## Running the program
 
-The main program is the `main.cpp` file. It requires 2 command line arguments, the first is T_max (the maximum time for calculating the trajectory) the second is dt (the integration step).
+The main program is the `main.cpp` file. It requires 2 command line arguments, the first is `T_max` (the maximum time for calculating the trajectory) the second is `dt` (the integration step).
 
 The file `plot_lorenz.m` in the main directory is a MATLAB script that can be used to make a 3d plot of the resulting .csv file.
 
-The complete program (c++ + MATLAB) can be executed via the run_all.sh script in Linux and MAC (bash and g++ required) systems. It requiers 2 command line arguments, they are the T_max and dt of the c++ code: 
+The complete program (c++ + MATLAB) can be executed via the run_all.sh script in Linux and MAC (bash and g++ required) systems. It requiers 2 command line arguments, which are the `T_max` and `dt` of the c++ code: 
 ```bash
 ./run_all.sh <T_max> <dt>
 ```
