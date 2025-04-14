@@ -14,3 +14,5 @@ Each coordinate of the starting point X0 is chosen uniformly at random between -
 The trajectory is memorized in a vectr<Vector3d>> using Eigen library. Then the programs prints the trajectory in an output .csv file.
 
 The file plot_lorenz.m in the main directory is a MATLAB script that can be used to make a 3d plot of the resulting .csv file.
+
+The complete program (c++ + MATLAB) can be executed via the run_all.sh script in Linux and MAC (bash and g++ required) systems. It requiers 2 command line arguments, they are the T_max and dt of the c++ code. The script will execute the c++ code, export the results in a data folder (the script creates the folder in the working directory) and then it opens the MATLAB 3d render of the trajectory.
