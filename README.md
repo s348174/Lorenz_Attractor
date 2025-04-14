@@ -16,6 +16,18 @@ $$ X_{i+1} = X_{i} + \nabla X_i \cdot dt \ .$$
 
 The gradient is extimated with the following 4 stage Runge-Kutta method:
 
+$$ \begin{cases}
+\begin{aligned}
+K_1 &= f(t_n, X_n) \\
+K_2 &= f\left(t_n + \frac{h}{2},\; X_n + \frac{h}{2}K_1\right) \\
+K_3 &= f\left(t_n + \frac{h}{2},\; X_n + \frac{h}{2}K_2\right) \\
+K_4 &= f(t_n + h,\; X_n + hK_3) \\
+X_{n+1} &= X_n + \frac{h}{6}(K_1 + 2K_2 + 2K_3 + K_4).
+\end{aligned}
+\end{cases} $$
+
+In this case $f(t,X) = f(X) = \nabla X$ since the system of ODEs is dependent only to the position.
+
 ## Implementation details
 
 Each coordinate of the starting point X0 is sampled uniformly between -0.1 and 0.1, while $\sigma = 10$, $\rho = 28$, $\beta = 8/3$ are given.
