@@ -1,7 +1,7 @@
 # Lorenz_Attractor - C++ & MATLAB project
 C++ code implementation for a Lorenz attractor. The Lorenz attractor is a dynamical system described by 3 first order ODEs. The code implements a 4 step Runge-Kutta method in order to solve numerically at each time step in a given interval the ODEs.
 
-## Sistem of equations
+## System of equations
 The Lorenz equations give the gradient of the trajectory at any given point in $\mathbb{R}^3$:
 
 $$\begin{cases} 
@@ -20,11 +20,11 @@ The gradient is extimated with the following 4 stage Runge-Kutta method:
 
 Each coordinate of the starting point X0 is sampled uniformly between -0.1 and 0.1, while $\sigma = 10$, $\rho = 28$, $\beta = 8/3$ are given.
 
-The points of the trajectory are calculated in the c++ program and are stored in a dinamically allocated `vector<Vector3d>`, where `vector` is the native dinamically allocated array of the standard template library, while `Vector3d` is a column vector of 3 doubles from the Eigen library. Then the programs exports the trajectory in an output `Lorenz_attractor_trajectory.csv` file.
+The points of the trajectory are calculated in the c++ program and are stored in a dinamically allocated `vector<Vector3d>`, where `vector` is the native dinamically allocated array of the standard template library, while `Vector3d` is a column vector of 3 doubles from the Eigen library. Then the programs exports the trajectory in an output csv file named `Lorenz_attractor_trajectory.csv`.
 
 ## Running the program
 
-The main program is the `main.cpp` file. It requires 2 command line arguments, the first is T_max -- the maximum time for calculating the trajectory -- the second beeing dt -- the integration step.
+The main program is the `main.cpp` file. It requires 2 command line arguments, the first is T_max (the maximum time for calculating the trajectory) the second is dt (the integration step).
 
 The file `plot_lorenz.m` in the main directory is a MATLAB script that can be used to make a 3d plot of the resulting .csv file.
 
