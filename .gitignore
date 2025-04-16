@@ -36,9 +36,12 @@
 externals
 *Release*
 data
+music
 
-# solve file
+# Main directory files
 /solve
+/sound_lorenz.m
+/sound_lorenz_3_voices.m
 
 # Configuration
 *.user
