@@ -9,7 +9,7 @@
 using namespace std;
 using namespace Eigen;
 
-Vector3d lorenz_gradient(Vector3d X, double& r, double& s, double& b)
+Vector3d lorenz_gradient(const Vector3d& X, double r, double s, double b)
 {
     double x = X(0);
     double y = X(1);
@@ -20,14 +20,14 @@ Vector3d lorenz_gradient(Vector3d X, double& r, double& s, double& b)
     return gradient;
 }
 
-vector<Vector3d> runge_kutta_4(Vector3d X0, const double& T_max, const double& dt, double& r, double& s, double& b)
+vector<Vector3d> runge_kutta_4(const Vector3d& X0, const double T_max, const double dt, double r, double s, double b)
 {
     unsigned int N = round(T_max/dt); // Numero di iterazioni della simulazione
     vector<Vector3d> X; // Vettore in cui viene memorizzata la traiettoria
     X.reserve(N);
     X.push_back(X0);
     unsigned int i = 0;
-    unsigned int t = 0;
+    double t = 0;
     // Ciclo for che implementa il metodo
     while (t <= T_max && i <= N) {
         Vector3d K1 = lorenz_gradient(X[i], r, s, b);

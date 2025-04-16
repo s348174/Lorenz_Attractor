@@ -21,6 +21,7 @@ int main(int argc, char** argv)
     double dt; // Passo di integrazione
     if (argc != 3) {
         cerr << "Input missing" << endl;
+        return 1;
     }
     else {
         istringstream str_Tmax(argv[1]);
@@ -30,9 +31,9 @@ int main(int argc, char** argv)
         str_dt >> dt;
     }
     // Inizializzazione dei parametri dell'equazione
-    double r = 28;
-    double s = 10;
-    double b = 8/3;
+    const double r = 28;
+    const double s = 10;
+    const double b = 8/3;
     // Inizializzazione dei parametri di integrazione
     // double T_max = 100; // Tempo massimo di integrazione
     // double dt = 0.001; // Passo di integrazione
