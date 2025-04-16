@@ -24,15 +24,20 @@ vector<Vector3d> runge_kutta_4(Vector3d X0, const double& T_max, const double& d
 {
     unsigned int N = round(T_max/dt); // Numero di iterazioni della simulazione
     vector<Vector3d> X; // Vettore in cui viene memorizzata la traiettoria
-    X.resize(N);
-    X[0] = X0;
+    X.reserve(N);
+    X.push_back(X0);
+    unsigned int i = 0;
+    unsigned int t = 0;
     // Ciclo for che implementa il metodo
-    for (unsigned int i = 0; i < N-1; ++i) {
+    while (t <= T_max && i <= N) {
         Vector3d K1 = lorenz_gradient(X[i], r, s, b);
         Vector3d K2 = lorenz_gradient(X[i] + K1 * dt / 2, r, s, b);
         Vector3d K3 = lorenz_gradient(X[i] + K2 * dt / 2, r, s, b);
         Vector3d K4 = lorenz_gradient(X[i] + K3 * dt, r, s, b);
-        X[i+1] = X[i] + dt * (K1 + 2*K2 + 2*K3 + K4) / 6;
+        Vector3d X_next = X[i] + dt * (K1 + 2*K2 + 2*K3 + K4) / 6;
+        X.push_back((X_next));
+        i++;
+        t += dt;
     }
     return X;
 }
