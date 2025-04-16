@@ -37,6 +37,9 @@ externals
 *Release*
 data
 
+# solve file
+/solve
+
 # Configuration
 *.user
 
