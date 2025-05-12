@@ -31,7 +31,7 @@ int main(int argc, char** argv)
         str_dt >> dt;
     }
     // Inizializzazione dei parametri dell'equazione
-    const double r = 28;
+    const double r = 10;
     const double s = 10;
     const double b = 8/3;
     // Inizializzazione dei parametri di integrazione
